@@ -1,23 +1,26 @@
+import com.google.common.collect.Lists;
 import linear_table.CArrayList;
+import linear_table.COneDirectLinkList;
 import model.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        CArrayList<Student> list = new CArrayList<>();
-        CArrayList<Student> list1 = new CArrayList<>();
+        ArrayList<Student> list = Lists.newArrayList();
 
         for (int i = 0; i < 11; i++) {
             list.add(new Student(i,"nick:"+i));
-            list1.add(new Student(i,"nick1111:"+i));
         }
-        list.addAll(list1);
-//        list.add(5,new Student(1111,"hhhhh"));
-//        Student student = list.remove(5);
-//        System.out.println(student.toString());
 
+        COneDirectLinkList<Student> linkList = new COneDirectLinkList<>();
+        linkList.addAll(0,list);
+
+        linkList.remove(2);
+        linkList.remove(0);
+        linkList.remove(9);
         System.out.println();
     }
 }
