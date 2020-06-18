@@ -23,9 +23,15 @@ public class SelectionSort {
         }
     }
 
+    public static void print(Comparable[] a){
+        for (Comparable i:a){
+            System.out.print(i+" ");
+        }
+    }
+
     public static void main(String[] args) {
         Integer[] a = {3, 1, 4, 5, 3, 8, 9, 10, 2};
         sort(a);
-        System.out.println();
+        print(a);
     }
 }
