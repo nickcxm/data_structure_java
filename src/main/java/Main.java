@@ -9,18 +9,22 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Student> list = Lists.newArrayList();
-
-        for (int i = 0; i < 11; i++) {
-            list.add(new Student(i,"nick:"+i));
-        }
-
-        COneDirectLinkList<Student> linkList = new COneDirectLinkList<>();
-        linkList.addAll(0,list);
-
-        linkList.remove(2);
-        linkList.remove(0);
-        linkList.remove(9);
-        System.out.println();
+//        ArrayList<Student> list = Lists.newArrayList();
+//
+//        for (int i = 0; i < 11; i++) {
+//            list.add(new Student(i,"nick:"+i));
+//        }
+//
+//        COneDirectLinkList<Student> linkList = new COneDirectLinkList<>();
+//        linkList.addAll(0,list);
+//
+//        linkList.remove(2);
+//        linkList.remove(0);
+//        linkList.remove(9);
+//        System.out.println();
+        CArrayList<Integer> list = new CArrayList<>();
+        list.add(2);
+        list.add(2);
+        list.add(2);
     }
 }

@@ -9,18 +9,26 @@ package sort;
 public class SelectionSort {
 
     public static void sort(Comparable[] list) {
-        int length = list.length;
-        for (int i = 0; i < length; i++) {
-            int min = i;
-            for (int j = i + 1; j < length; j++) {
-                if (list[min].compareTo(list[j]) > 0) {
-                    min = j;
+        //每次选最小的
+        for (int i = 0; i < list.length; i++) {
+            int min=i;
+            for (int j = i; j < list.length; j++) {
+                if (less(list[j],list[min])){
+                    min=j;
                 }
             }
-            Comparable temp = list[i];
-            list[i] = list[min];
-            list[min] = temp;
+            exch(list,i,min);
         }
+    }
+
+    public static boolean less(Comparable a,Comparable b){
+        return a.compareTo(b)<0;
+    }
+
+    public static void exch(Comparable[] list,int i,int j){
+        Comparable temp = list[i];
+        list[i] = list[j];
+        list[j] = temp;
     }
 
     public static void print(Comparable[] a){

@@ -7,6 +7,8 @@ package sort;
  */
 public class TopDownMergeSort {
     public static void sort(Comparable[] list,int low,int high) {
+        //需要进行递归
+        //条件是low不能大于等于high
         if (low>=high){
             return;
         }
@@ -16,21 +18,24 @@ public class TopDownMergeSort {
         merge(list,low,mid,high);
     }
 
-    private static void merge(Comparable[] a,int low,int mid,int high){
+    private static void merge(Comparable[] list,int low,int mid,int high){
         int i=low,j=mid+1;
-        Comparable[] temp=new Comparable[a.length];
-        for (int k = low; k <=high; k++) {
-            temp[k]=a[k];
+        Comparable[] temp = new Comparable[list.length];
+        for (int k = low; k <= high; k++) {
+            temp[k]=list[k];
         }
-        for (int k = low; k <=high; k++) {
+        for (int k = low; k <= high; k++) {
+            //左边数组已经全部用完了，把右边剩余的放进去
             if (i>mid){
-                a[k]=temp[j++];
+                list[k]=temp[j++];
             }else if (j>high){
-                a[k]=temp[i++];
-            }else if (less(temp[j],temp[i])){
-                a[k]=temp[j++];
+                //右边的用完了，把左边剩余的放进去
+                list[k]=temp[i++];
+            }else if (less(temp[i],temp[j])){
+                //取小的那个
+                list[k]=temp[i++];
             }else {
-                a[k]=temp[i++];
+                list[k]=temp[j++];
             }
         }
     }
