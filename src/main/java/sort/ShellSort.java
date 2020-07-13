@@ -22,19 +22,18 @@ public class ShellSort {
         System.out.println();
     }
 
-    public static void sort(Comparable[] list){
-        int length=list.length;
-        int h=1;
-        while (h<length/3){
-            h=3*h+1;
+    public static void sort(Comparable[] list) {
+        int len = list.length, h = 1;
+        while (h < len / 3) {
+            h = 3 * h + 1;
         }
-        while (h>=1){
-            for (int i = 0; i < length; i++) {
-                for (int j = i; j >=h&&less(list[j],list[j-h]); j-=h) {
-                    exch(list,j,j-h);
+        while (h >= 1) {
+            for (int i = 0; i < list.length; i++) {
+                for (int j = i; j >= h && less(list[j], list[j - h]); j -= h) {
+                    exch(list, j, j - h);
                 }
             }
-            h/=3;
+            h /= 3;
         }
     }
 

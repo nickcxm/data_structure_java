@@ -9,12 +9,10 @@ public class DownTopMergeSort {
     static Comparable[] temp;
 
     public static void sort(Comparable[] list) {
-        int length = list.length;
-        temp=new Comparable[length];
-        //一开始子数组长度为1
-        for (int childListLen = 1; childListLen < length; childListLen=childListLen+childListLen) {
-            for (int low = 0; low < length - childListLen; low+=childListLen+childListLen) {
-                merge(list,low,low+childListLen-1,Math.min(low+childListLen+childListLen-1,length-1));
+        int len = list.length;
+        for (int childLen = 1; childLen < len; childLen*=2) {
+            for (int index = 0; index < len -childLen; index=index+2*childLen) {
+                merge(list,index,index+childLen-1,Math.min(index+2*childLen-1,len-1));
             }
         }
     }

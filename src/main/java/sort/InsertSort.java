@@ -20,7 +20,7 @@ public class InsertSort {
 
     public static void sort(Comparable[] list){
         for (int i = 0; i < list.length; i++) {
-            for (int j = i; j>0&&less(list[j],list[j-1]) ; j--) {
+            for (int j=i; j>0&&less(list[j],list[j-1]); j--) {
                 exch(list,j,j-1);
             }
         }

@@ -7,32 +7,31 @@ public class QuickSort {
     public static void main(String[] args) {
         Integer[] a = {6, 1, 4, 5, 3, 8, 9, 10, 2};
         sort(a,0,a.length-1);
-//        partition(a,0,a.length-1);
         print(a);
 
     }
 
     public static int partition(Comparable[] list,int low,int high){
-        int i=low,j=high+1;
-        Comparable v=list[i];
+        int left=low,right=high+1;
+        Comparable v = list[left];
         while (true){
-            while (less(list[++i],v)){
-                if (i==high){
+            while (less(list[++left],v)){
+                if (left==high){
                     break;
                 }
             }
-            while (less(v,list[--j])){
-                if (j==low){
+            while (less(v,list[--right])){
+                if (right==low){
                     break;
                 }
             }
-            if (i>=j){
+            if (left>=right){
                 break;
             }
-            exch(list,i,j);
+            exch(list,left,right);
         }
-        exch(list,low,j);
-        return j;
+        exch(list,low,right);
+        return right;
     }
 
     public static void print(Comparable[] a){
@@ -45,9 +44,9 @@ public class QuickSort {
         if (low>=high){
             return;
         }
-        int j = partition(list, low, high);
-        sort(list,low,j-1);
-        sort(list,j+1,high);
+        int mid=partition(list,low,high);
+        sort(list,low,mid-1);
+        sort(list,mid+1,high);
     }
 
     public static boolean less(Comparable a,Comparable b){

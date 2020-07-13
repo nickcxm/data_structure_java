@@ -9,7 +9,6 @@ package sort;
 public class SelectionSort {
 
     public static void sort(Comparable[] list) {
-        //每次选最小的
         for (int i = 0; i < list.length; i++) {
             int min=i;
             for (int j = i; j < list.length; j++) {
